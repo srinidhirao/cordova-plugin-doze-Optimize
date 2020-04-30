@@ -100,7 +100,7 @@ public class DozeOptimize extends CordovaPlugin {
 
                     Intent intent = new Intent();
                     PowerManager pm = (PowerManager) context.getSystemService(Context.POWER_SERVICE);
-                    if (pm.isIgnoringBatteryOptimizations(packageName)){
+                    if (!pm.isIgnoringBatteryOptimizations(packageName)){
                         intent.setAction(Settings.ACTION_IGNORE_BATTERY_OPTIMIZATION_SETTINGS);
                         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                         context.startActivity(intent);
